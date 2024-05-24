@@ -1,0 +1,16 @@
+BEGIN:VCARD
+VERSION:3.0
+N:;Agente Alessandra Guimarães.;;;
+FN:Agente Alessandra Guimarães.
+TEL;type=CELL;type=VOICE;waid=555193684367:+55 51 99368-4367
+END:VCARD_$!<VCard-Separator>!$_BEGIN:VCARD
+VERSION:3.0
+N:;Agente Carlos Roberto De Oliveira Junior;;;
+FN:Agente Carlos Roberto De Oliveira Junior
+TEL;type=CELL;type=VOICE;waid=5511984582414:+55 11 98458-2414
+END:VCARD_$!<VCard-Separator>!$_BEGIN:VCARD
+VERSION:3.0
+N:;Agente Claudio Coelho;;;
+FN:Agente Claudio Coelho
+TEL;type=CELL;type=VOICE;waid=5521980398832:+55 21 98039-8832
+END:VCARD
