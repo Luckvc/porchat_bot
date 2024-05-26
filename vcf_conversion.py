@@ -3,12 +3,12 @@ import re
 
 
 def get_phone(vcard):
-    phone_number = re.search('waid=\d+', vcard)
+    phone_number = re.search('waid=\d+.*', vcard)
     if phone_number:
-        return phone_number.group().split('=')[1]
+        phone_number = phone_number.group().split(':')[1]
+        return re.sub('[-()+:]', '', phone_number)
 
-    phone_number = re.search(':\+.*$', vcard).group()
-    return re.sub('[-()+: ]', '', phone_number)
+    return None
 
 
 def extract_name_and_number(contact_list):
@@ -21,6 +21,7 @@ def extract_name_and_number(contact_list):
             if line.split(":")[0] == 'FN':
                 name = line.split(":")[1].strip(';')
 
+        # if phone:
         name_arr.append(name)
         phone_arr.append(phone)
 
@@ -38,11 +39,10 @@ def convert_vcf_to_df(file_path):
     name_arr = []
     phone_arr = []
     get_contacts(file_path)
-    contact_dict = {'name': name_arr,
-                    'phone': phone_arr}
+    contact_arr = [name_arr, phone_arr]
 
-    df = pd.DataFrame(contact_dict)
-    return df
+    print(contact_arr)
+    return contact_arr
 
 
 if __name__ == '__main__':

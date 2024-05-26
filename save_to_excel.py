@@ -1,24 +1,25 @@
-import pandas as pd
 from openpyxl import load_workbook
+from openpyxl.styles import Alignment
 
-contacts = {
-    'nome': ['Adilson', 'Ana Paula', 'Ester Baos Irmã', 'Joãozinho', 'Jorginho', 'Mexicano'],
-    'phone': ['5517991411223', '5511944645774', '12028204210', '558781714750', '819017531983', '5519988923626']
-}
+file_path = 'Leads New.xlsx'
+workbook = load_workbook(filename=file_path)
 
-new_contacts = pd.DataFrame(contacts)
+worksheet = workbook.active
 
-file_path = 'Pasta.xlsx'
+contacts = [['Adilson', 'Ana Paula', 'Ester Baos Irmã', 'Joãozinho', 'Jorginho', 'Mexicano'],
+            ['5517991411223', '5511944645774', '12028204210', '558781714750', '819017531983', '5519988923626']]
 
-# leads = pd.read_excel(file_path, sheet_name='Planilha1', engine='openpyxl')
-# writer = pd.ExcelWriter('Pasta.xlsx', engine='openpyxl')
-# startrow = leads.index[-1] + 2
-# new_contacts.to_excel(writer, startrow=startrow, index=False)
+first_empty_row = worksheet.max_row + 2
 
+center_alignment = Alignment(horizontal='center', vertical='center')
 
-odf1 = pd.read_excel(file_path, sheet_name='Planilha1', engine='openpyxl')
-last_row_index = odf1.index[-1] + 1
-print(last_row_index)
-# odf = pd.read_excel('Pasta.xlsx')
-#
-# print(odf)
+for i in range(len(contacts[0])):
+    name_cell = worksheet.cell(row=first_empty_row + i, column=1, value=contacts[0][i])
+    phone_cell = worksheet.cell(row=first_empty_row + i, column=2, value=contacts[1][i])
+    name_cell.alignment = center_alignment
+    phone_cell.alignment = center_alignment
+
+# Save the updated workbook
+workbook.save(filename=file_path)
+
+print("Data appended and saved successfully!")
