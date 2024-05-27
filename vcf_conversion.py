@@ -33,7 +33,8 @@ def get_contacts(file_path):
         extract_name_and_number(contacts)
 
 
-def convert_vcf_to_df(file_path):
+def convert_vcf_to_arr(file_path):
+    print('Conversion Request Recieved')
     global name_arr
     global phone_arr
     name_arr = []
@@ -41,7 +42,7 @@ def convert_vcf_to_df(file_path):
     get_contacts(file_path)
     contact_arr = [name_arr, phone_arr]
 
-    print(contact_arr)
+    print('Contacts Converted')
     return contact_arr
 
 
