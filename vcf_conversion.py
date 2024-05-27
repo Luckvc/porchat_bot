@@ -21,8 +21,9 @@ def extract_name_and_number(contact_list):
             if line.split(":")[0] == 'FN':
                 name = line.split(":")[1].strip(';')
 
-        name_arr.append(name)
-        phone_arr.append(phone)
+        if phone:
+            name_arr.append(name)
+            phone_arr.append(phone)
 
 
 def get_contacts(file_path):
