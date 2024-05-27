@@ -1,6 +1,7 @@
 import logging
 import vcf_conversion as vcf
 import save_to_excel as save
+import os
 from credentials import TELEGRAM_API_KEY
 from telegram import Update
 from telegram.ext import ApplicationBuilder, ContextTypes, CommandHandler, MessageHandler, filters
@@ -20,6 +21,7 @@ async def doc(update: Update, context: ContextTypes.DEFAULT_TYPE):
     contacts_arr = vcf.convert_vcf_to_arr('contacts.vcf')
     save.append_to_spreadsheed(contacts_arr)
     print('Data Appended to Spreadsheet')
+    os.remove("contacts.vcf")
     await context.bot.send_message(chat_id=update.effective_chat.id, text="Contatos adicionados à planilha")
 
 
