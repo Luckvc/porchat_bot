@@ -17,10 +17,9 @@ async def doc(update: Update, context: ContextTypes.DEFAULT_TYPE):
     print('Request Recieved')
     new_file = await update.message.effective_attachment.get_file()
     await new_file.download_to_drive('contacts.vcf')
-    print('File Downloaded')
     contacts_arr = vcf.convert_vcf_to_arr('contacts.vcf')
     save.append_to_spreadsheed(contacts_arr)
-    print('Contatos salvos na planilha')
+    print('Data Appended to Spreadsheet')
     await context.bot.send_message(chat_id=update.effective_chat.id, text="Contatos adicionados à planilha")
 
 

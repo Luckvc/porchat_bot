@@ -1,13 +1,7 @@
 BEGIN:VCARD
 VERSION:3.0
-N:;Ciro Dantas;;;
-FN:Ciro Dantas
-X-WA-BIZ-NAME:Ciro Dantas
-TEL;type=CELL;type=VOICE;waid=556492599931:+55 64 99259-9931
-END:VCARD_$!<VCard-Separator>!$_BEGIN:VCARD
-VERSION:3.0
-N:Proje;João;Paulo;;
-FN:João Paulo Proje
-item1.TEL;waid=556493033658:+55 64 99303-3658
+N:Damião;Wagner Salustuano;;;
+FN:Wagner Salustuano Dami� �o
+item1.TEL;waid=17743682904:+1 (774) 368-2904
 item1.X-ABLabel:Celular
 END:VCARD

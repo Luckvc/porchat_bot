@@ -3,7 +3,6 @@ from openpyxl.styles import Alignment
 
 
 def append_to_spreadsheed(contacts):
-    print('Append Data Request Recieved')
     file_path = 'Leads New.xlsx'
     workbook = load_workbook(filename=file_path)
     worksheet = workbook.active
@@ -18,4 +17,3 @@ def append_to_spreadsheed(contacts):
         phone_cell.alignment = center_alignment
 
     workbook.save(filename=file_path)
-    print('Workbook Saved')

@@ -21,7 +21,6 @@ def extract_name_and_number(contact_list):
             if line.split(":")[0] == 'FN':
                 name = line.split(":")[1].strip(';')
 
-        # if phone:
         name_arr.append(name)
         phone_arr.append(phone)
 
@@ -34,7 +33,6 @@ def get_contacts(file_path):
 
 
 def convert_vcf_to_arr(file_path):
-    print('Conversion Request Recieved')
     global name_arr
     global phone_arr
     name_arr = []
@@ -42,9 +40,5 @@ def convert_vcf_to_arr(file_path):
     get_contacts(file_path)
     contact_arr = [name_arr, phone_arr]
 
-    print('Contacts Converted')
     return contact_arr
 
-
-if __name__ == '__main__':
-    convert_vcf_to_df('contacts.vcf')
