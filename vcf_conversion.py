@@ -22,7 +22,6 @@ def extract_name_and_number(contact_list):
             if line.split(":")[0] == 'FN':
                 name = line.split(":")[1].strip(';')
 
-        print(name, phone)
         if phone:
             name_arr.append(name)
             phone_arr.append(phone)
