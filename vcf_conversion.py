@@ -6,7 +6,8 @@ def get_phone(vcard):
     phone_number = re.search('waid=\d+.*', vcard)
     if phone_number:
         phone_number = phone_number.group().split(':')[1]
-        return re.sub('[-()+:]', '', phone_number)
+        phone_number = re.sub('-', ' ', phone_number)
+        return re.sub('[()+:]', '', phone_number)
 
     return None
 
@@ -21,6 +22,7 @@ def extract_name_and_number(contact_list):
             if line.split(":")[0] == 'FN':
                 name = line.split(":")[1].strip(';')
 
+        print(name, phone)
         if phone:
             name_arr.append(name)
             phone_arr.append(phone)
