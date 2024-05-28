@@ -6,7 +6,8 @@ def get_phone(vcard):
     phone_number = re.search('waid=\d+.*', vcard)
     if phone_number:
         phone_number = phone_number.group().split(':')[1]
-        return re.sub('[-()+:]', '', phone_number)
+        phone_number = re.sub('-', ' ', phone_number)
+        return re.sub('[()+:]', '', phone_number)
 
     return None
 

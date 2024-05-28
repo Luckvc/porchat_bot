@@ -2,7 +2,7 @@ import logging
 import vcf_conversion as vcf
 import save_to_excel as save
 import os
-from credentials import TELEGRAM_API_KEY
+from credentials import TELEGRAM_API_KEY, TEST_BOT_API_KEY
 from telegram import Update
 from telegram.ext import ApplicationBuilder, ContextTypes, CommandHandler, MessageHandler, filters
 
